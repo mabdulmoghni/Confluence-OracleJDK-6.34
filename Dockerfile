@@ -6,7 +6,7 @@ MAINTAINER Mohamed Abdulmoghni <mabdulmoghni@cloud9ers.com>
 ### Clean up APT when done
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get --quiet update && \
-    apt-get --quiet --yes --force-yes upgrade && apt-get -y install tar && \
+    apt-get --quiet --yes --force-yes upgrade && apt-get -y install wget tar && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ###############################################################
 # Configuration variables.
