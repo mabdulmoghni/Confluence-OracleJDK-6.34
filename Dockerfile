@@ -5,7 +5,7 @@ MAINTAINER Mohamed Abdulmoghni
 ENV RUN_USER            daemon
 ENV RUN_GROUP           daemon
 
-# https://confluence.atlassian.com/doc/confluence-home-and-other-important-directories-590259707.html
+## https://confluence.atlassian.com/doc/confluence-home-and-other-important-directories-590259707.html
 ENV CONFLUENCE_HOME          /var/atlassian/confluence
 ENV CONFLUENCE_INSTALL_DIR   /opt/atlassian/confluence
 
