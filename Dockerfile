@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-oraclejdk8:8.144.1-full
+FROM spantree/ubuntu-oraclejdk8:1.8.0_u40_b25
 
 ENV RUN_USER            daemon
 ENV RUN_GROUP           daemon
@@ -18,7 +18,9 @@ WORKDIR $CONFLUENCE_HOME
 CMD ["/entrypoint.sh", "-fg"]
 ENTRYPOINT ["/sbin/tini", "--"]
 
-RUN apk update -qq \
+RUN set -x \
+    && apt-get update --quiet \
+    && apk update -qq \
     && update-ca-certificates \
     && apk add ca-certificates wget curl openssh bash procps openssl perl ttf-dejavu tini \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
