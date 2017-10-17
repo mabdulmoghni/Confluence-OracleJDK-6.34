@@ -1,6 +1,5 @@
-FROM frolvlad/alpine-oraclejdk8:8.144.1-full
+FROM openjdk:8
 
-MAINTAINER Mohamed Abdulmoghni
 # Setup useful environment variables
 ENV CONF_HOME     /var/atlassian/confluence
 ENV CONF_INSTALL  /opt/atlassian/confluence
