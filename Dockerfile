@@ -1,4 +1,4 @@
-FROM elifarley/docker-alpine-oraclejdk8:latest
+FROM spantree/ubuntu-oraclejdk8:1.8.0_u40_b25
 
 ENV RUN_USER            daemon
 ENV RUN_GROUP           daemon
@@ -20,9 +20,9 @@ ENTRYPOINT ["/sbin/tini", "--"]
 
 RUN set -x \
     && apt-get update --quiet \
-    && apk update -qq \
     && update-ca-certificates \
-    && apk add ca-certificates wget curl openssh bash procps openssl perl ttf-dejavu tini \
+    && apt-get install --quiet --yes --no-install-recommends ca-certificates wget curl openssh bash procps openssl perl ttf-dejavu tini \
+    && apt-get clean \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
 
 COPY entrypoint.sh              /entrypoint.sh
