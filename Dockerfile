@@ -25,7 +25,7 @@ RUN set -x \
     && chmod -R 700            "${CONF_HOME}" \
     && chown daemon:daemon     "${CONF_HOME}" \
     && mkdir -p                "${CONF_INSTALL}/conf" \
-    && curl -Ls                "https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-${CONF_VERSION}.tar.gz" | tar -xz --directory "${CONF_INSTALL}" --strip-components=1 --no-same-owner \
+    && curl -Ls                "https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-${CONF_INSTALL}.tar.gz" | tar -xz --directory "${CONF_INSTALL}" --strip-components=1 --no-same-owner \
     && curl -Ls                "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.38.tar.gz" | tar -xz --directory "${CONF_INSTALL}/confluence/WEB-INF/lib" --strip-components=1 --no-same-owner "mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar" \
     && chmod -R 700            "${CONF_INSTALL}/conf" \
     && chmod -R 700            "${CONF_INSTALL}/temp" \
