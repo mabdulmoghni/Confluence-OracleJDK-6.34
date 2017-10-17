@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM docker pull spantree/ubuntu-oraclejdk8:1.8.0_u40_b25
 
 MAINTAINER Mohamed Abdulmoghni
 # Setup useful environment variables
@@ -8,10 +8,6 @@ ENV CONF_VERSION  6.0.0-rc5
 
 # Install Atlassian Confluence and helper tools and setup initial home
 # directory structure.
-
-# Default to UTF-8 file.encoding
-ENV LANG C.UTF-8
-
 RUN set -x \
     && apt-get update --quiet \
     && apt-get install --quiet --yes --no-install-recommends libtcnative-1 xmlstarlet \
@@ -20,7 +16,7 @@ RUN set -x \
     && chmod -R 700            "${CONF_HOME}" \
     && chown daemon:daemon     "${CONF_HOME}" \
     && mkdir -p                "${CONF_INSTALL}/conf" \
-    && curl -Ls                "https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-${CONF_INSTALL}.tar.gz" | tar -xz --directory "${CONF_INSTALL}" --strip-components=1 --no-same-owner \
+    && curl -Ls                "https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-${CONF_VERSION}.tar.gz" | tar -xz --directory "${CONF_INSTALL}" --strip-components=1 --no-same-owner \
     && curl -Ls                "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.38.tar.gz" | tar -xz --directory "${CONF_INSTALL}/confluence/WEB-INF/lib" --strip-components=1 --no-same-owner "mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar" \
     && chmod -R 700            "${CONF_INSTALL}/conf" \
     && chmod -R 700            "${CONF_INSTALL}/temp" \
