@@ -1,4 +1,4 @@
-FROM armbuild/dockerfile-java:oracle-java8
+FROM frolvlad/alpine-oraclejdk8:8.144.1-full
 
 MAINTAINER Mohamed Abdulmoghni
 
