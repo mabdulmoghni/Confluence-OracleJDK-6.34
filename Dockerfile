@@ -1,10 +1,10 @@
-FROM frolvlad/alpine-oraclejdk8:8.144.1-full
+FROM Spantree/ubuntu-oraclejdk8:1.8.0_u40_b25
 
 MAINTAINER Mohamed Abdulmoghni
 # Setup useful environment variables
 ENV CONF_HOME     /var/atlassian/confluence
 ENV CONF_INSTALL  /opt/atlassian/confluence
-ENV CONF_VERSION  6.3.4
+ENV CONF_VERSION  6.0.0-rc5
 
 # Install Atlassian Confluence and helper tools and setup initial home
 # directory structure.
