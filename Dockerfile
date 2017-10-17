@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-oraclejdk8:8.144.1-full
+FROM szyrin/centos7-oraclejdk8:latest
 
 MAINTAINER Atlassian Confluence
 
