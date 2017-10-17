@@ -1,4 +1,4 @@
-FROM spantree/ubuntu-oraclejdk8:1.8.0_u40_b25
+FROM itram509/debian-oraclejdk8-maven-cmake-gcc-gnueabihf:latest
 
 ENV RUN_USER            daemon
 ENV RUN_GROUP           daemon
