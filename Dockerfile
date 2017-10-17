@@ -1,4 +1,4 @@
-FROM java:oracle-java8
+FROM armbuild/dockerfile-java:oracle-java8
 
 MAINTAINER Mohamed Abdulmoghni
 
