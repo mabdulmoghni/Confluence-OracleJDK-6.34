@@ -1,2 +1,0 @@
-#Map your backed up confluence_home directory to Docker volume confluence_home
-#Docker run -d -p 8090:8090 -v Host_Volume:/home/confluence/confluence_home -t ubuntu:confluence
