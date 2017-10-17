@@ -1,4 +1,4 @@
-FROM docker rolvlad/alpine-oraclejdk8:8.144.1-full
+FROM docker frolvlad/alpine-oraclejdk8:8.144.1-full
 
 MAINTAINER Mohamed Abdulmoghni
 # Setup useful environment variables
