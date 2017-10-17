@@ -1,4 +1,4 @@
-FROM docker pull spantree/ubuntu-oraclejdk8:1.8.0_u40_b25
+FROM docker rolvlad/alpine-oraclejdk8:8.144.1-full
 
 MAINTAINER Mohamed Abdulmoghni
 # Setup useful environment variables
