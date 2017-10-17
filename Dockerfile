@@ -1,4 +1,4 @@
-FROM Spantree/ubuntu-oraclejdk8:1.8.0_u40_b25
+FROM spantree/ubuntu-oraclejdk8:1.8.0_u40_b25
 
 MAINTAINER Mohamed Abdulmoghni
 # Setup useful environment variables
