@@ -8,11 +8,10 @@ ENV CONF_VERSION  6.3.4
 
 # Install Atlassian Confluence and helper tools and setup initial home
 # directory structure.
-RUN apt-get update && apt-get install -y --no-install-recommends \
-		bzip2 \
-		unzip \
-		xz-utils \
-	&& rm -rf /var/lib/apt/lists/*
+RUN set -x \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends bzip2 unzip xz-utils \
+    && rm -rf /var/lib/apt/lists/*
 
 # Default to UTF-8 file.encoding
 ENV LANG C.UTF-8
