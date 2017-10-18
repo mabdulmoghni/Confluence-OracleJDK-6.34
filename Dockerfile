@@ -34,6 +34,6 @@ RUN mkdir -p                             ${CONFLUENCE_INSTALL_DIR} \
 WORKDIR $CONFLUENCE_HOME
 
 COPY entrypoint.sh              /entrypoint.sh
-RUN chmod a+rx /docker-entrypoint.s
+RUN ["chmod", "+x", "/entrypoint.sh"]
 CMD ["/entrypoint.sh", "-fg"]
 ENTRYPOINT ["/sbin/tini", "--"]
