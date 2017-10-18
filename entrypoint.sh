@@ -31,3 +31,4 @@ if [ "${UID}" -eq 0 ]; then
 else
     exec "$CONFLUENCE_INSTALL_DIR/bin/start-confluence.sh" "$@"
 fi
+exec "$@"
