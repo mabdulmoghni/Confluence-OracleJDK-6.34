@@ -1,4 +1,4 @@
-FROM szyrin/centos7-oraclejdk8:latest
+FROM fsframework/fsf-centos-oraclejdk:latest
 
 MAINTAINER Atlassian Confluence
 
