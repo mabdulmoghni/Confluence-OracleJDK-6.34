@@ -25,7 +25,6 @@ RUN apk update -qq \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
 
 COPY entrypoint.sh              /entrypoint.sh
-RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 
 ARG CONFLUENCE_VERSION=6.3.4
 ARG DOWNLOAD_URL=https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz
