@@ -14,17 +14,11 @@ VOLUME ["${CONFLUENCE_HOME}"]
 EXPOSE 8090
 EXPOSE 8091
 
-WORKDIR $CONFLUENCE_HOME
-
-CMD ["/entrypoint.sh", "-fg"]
-ENTRYPOINT ["/sbin/tini", "--"]
-
 RUN apk update -qq \
     && update-ca-certificates \
     && apk add ca-certificates wget curl openssh bash procps openssl perl ttf-dejavu tini \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
 
-COPY entrypoint.sh              /entrypoint.sh
 
 ARG CONFLUENCE_VERSION=6.3.4
 ARG DOWNLOAD_URL=https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz
@@ -36,3 +30,10 @@ RUN mkdir -p                             ${CONFLUENCE_INSTALL_DIR} \
     && chown -R ${RUN_USER}:${RUN_GROUP} ${CONFLUENCE_INSTALL_DIR}/ \
     && sed -i -e 's/-Xms\([0-9]\+[kmg]\) -Xmx\([0-9]\+[kmg]\)/-Xms\${JVM_MINIMUM_MEMORY:=\1} -Xmx\${JVM_MAXIMUM_MEMORY:=\2} \${JVM_SUPPORT_RECOMMENDED_ARGS} -Dconfluence.home=\${CONFLUENCE_HOME}/g' ${CONFLUENCE_INSTALL_DIR}/bin/setenv.sh \
     && sed -i -e 's/port="8090"/port="8090" secure="${catalinaConnectorSecure}" scheme="${catalinaConnectorScheme}" proxyName="${catalinaConnectorProxyName}" proxyPort="${catalinaConnectorProxyPort}"/' ${CONFLUENCE_INSTALL_DIR}/conf/server.xml
+
+WORKDIR $CONFLUENCE_HOME
+
+COPY entrypoint.sh              /entrypoint.sh
+RUN chmod a+rx /docker-entrypoint.s
+CMD ["/entrypoint.sh", "-fg"]
+ENTRYPOINT ["/sbin/tini", "--"]
