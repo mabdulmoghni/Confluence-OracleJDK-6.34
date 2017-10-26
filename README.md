@@ -1,5 +1,6 @@
 # Confluence-OracleJDK
 Atlassian Confluence on OracleJDK
+Dockerized on https://hub.docker.com/r/mabdulmoghni/confluence-oraclejdk/
 Referenced To Gaurav Dubey update on https://bitbucket.org/atlassian/docker-atlassian-confluence-server/overview
 
 Confluence Server is where you create, organise and discuss work with your team. Capture the knowledge that's too often lost in email inboxes and shared network drives in Confluence – where it's easy to find, use, and update. Give every team, project, or department its own space to create the things they need, whether it's meeting notes, product requirements, file lists, or project plans, you can get more done in Confluence.
